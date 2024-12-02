@@ -3,7 +3,7 @@ from flask_cors import CORS
 import googleapiclient.discovery
 
 # API 키 설정
-YOUTUBE_API_KEY = "AIzaSyC6k8r9XWLvCtQXRz4Ms5olZvp8BkceJek"
+YOUTUBE_API_KEY = ""
 
 # Flask 애플리케이션 생성
 app = Flask(__name__)
