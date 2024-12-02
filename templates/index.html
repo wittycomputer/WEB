@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캠핑 어때?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=673b74eb5122430012216828&product=inline-share-buttons&source=platform" async="async"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #map {
+            width: 100%;
+            height: 500px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .buttons button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo">캠핑 어때?</div>
+        <div class="nav-links">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf42NNM1oDaUdKDbVl4sAHbN9bLE3eI8028XjZnj849Cvqmmw/viewform?usp=sf_link" class="contact-button" target="_blank" rel="noopener noreferrer">
+                문의하기
+            </a>
+        </div>
+    </nav>
+    
+    <section class="main">
+        <h1>캠핑 어때?</h1>
+        <p>자연 속에서 특별한 순간을 만나세요</p>
+        <div class="intro-text">
+            <p>전국의 아름다운 캠핑장을 소개합니다.</p>
+            <p>도시를 벗어나 자연과 함께하는 특별한 경험,</p>
+            <p>캠핑 어때와 함께 시작해보세요!</p>
+            <div class="sharethis-inline-share-buttons"></div>
+        </div>
+        
+    </section>
+
+    <section class="camping-spots">
+        <h2 class="section-title">인기 캠핑장</h2>
+        <div class="spots-grid">
+            <a href="https://www.tripadvisor.co.kr/Hotel_Review-g612375-d13397192-Reviews-Surfyy_Beach_Camping-Yangyang_gun_Gangwon_do.html">
+                <div class="spot-card">
+                    <img src="../static/img/surfer_beach.jpg" alt="서퍼비치 캠핑장">
+                    <div class="spot-info">
+                        <h3>서퍼비치 캠핑장</h3>
+                        <p>서퍼들을 위한 캠핑장</p>
+                        <p>강원도 양양</p>
+                        <div class="rate">평점 4.5</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.tripadvisor.co.kr/Hotel_Review-g294197-d4412935-Reviews-Nanji_Camp-Seoul.html">
+                <div class="spot-card">
+                    <img src="../static/img/nanji_camping.png" alt="난지 캠핑장">
+                    <div class="spot-info">
+                        <h3>난지 캠핑장</h3>
+                        <p>바베큐와 함께 즐기는 캠핑</p>
+                        <p>서울 마포구 상암동 495-81</p>
+                        <div class="rate">평점: 4.5</div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://www.tripadvisor.co.kr/Hotel_Review-g1131919-d9586405-Reviews-Gongju_Hanok_Village-Gongju_Chungcheongnam_do.html">
+                <div class="spot-card">
+                    <img src="../static/img/gongju_hanok.jpg" alt="공주 한옥마을 캠핑장">
+                    <div class="spot-info">
+                        <h3>공주 한옥마을 캠핑장</h3>
+                        <p>한옥과 함께하는 낭만적인 캠핑</p>
+                        <p>충청남도 공주 관광단지길 12</p>
+                        <div class="rate">평점: 4.0</div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://www.tripadvisor.co.kr/Hotel_Review-g297892-d2351582-Reviews-Seogwipo_Natural_Recreation_Forest-Seogwipo_Jeju_Island.html">
+                <div class="spot-card">
+                    <img src="../static/img/seogwipo.jpg" alt="서귀포 자연 휴양림">
+                    <div class="spot-info">
+                        <h3>서귀포 자연 휴양림</h3>
+                        <p>숲과 계곡에서 즐기는 짜릿한 캠핑</p>
+                        <p>서귀포 태포동 산1-1</p>
+                        <div class="rate">평점: 4.5</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.tripadvisor.co.kr/Hotel_Review-g297887-d23395912-Reviews-Daecheong_Lake_Lohas_Camping_Ground-Daejeon.html">
+                <div class="spot-card">
+                    <img src="../static/img/lohas_camping.jpg" alt="대청호 로하스캠핑장">
+                    <div class="spot-info">
+                        <h3>대청호 로하스캠핑장</h3>
+                        <p>좋은 경치와 함께하는 캠핑</p>
+                        <p>대전 대덕구 대청로424번길 200</p>
+                        <div class="rate">평점: 5.0</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.tripadvisor.co.kr/Hotel_Review-g2024855-d21212418-Reviews-Yeongjuho_Auto_camping_Site-Yeongju_Gyeongsangbuk_do.html">
+                <div class="spot-card">
+                    <img src="../static/img/영주호.jpg" alt="영주호 오토 캠핑">
+                    <div class="spot-info">
+                        <h3>영주호 오토 캠핑</h3>
+                        <p>숲과 정자에서 즐기는 캠핑</p>
+                        <p>경상북도 영주</p>
+                        <div class="rate">평점: 5.0</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.tripadvisor.co.kr/Hotel_Review-g297885-d26951922-Reviews-Jeju_Starlight_Glamping-Jeju_Jeju_Island.html">
+                <div class="spot-card">
+                    <img src="../static/img/제주스타라이트.jpg" alt="Jeju Starlight Glamping">
+                    <div class="spot-info">
+                        <h3>Jeju Starlight Glamping</h3>
+                        <p>세련된 텐트에서 즐기는 캠핑</p>
+                        <p>제주 348</p>
+                        <div class="rate">평점: 5.0</div>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+    </section>
+
+    <h1 class="camping-search-title">캠핑장 검색</h1>
+    <div class="category-container">
+        <div class="category-container">
+            <button class="category-button" aria-label="캠핑장"  data-category="캠핑장">
+                <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 20h20"></path>
+                    <path d="M5 20v-4a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v4"></path>
+                    <path d="M12 3l7 7"></path>
+                    <path d="M5 10l7-7"></path>
+                </svg>
+                <span class="category-name">캠핑장</span>
+            </button>
+            <button class="category-button" aria-label="글램핑장" data-category="글램핑장">
+                <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 14v6m-3-3h6M9 14v6M6 17h6M12 2L9 9h6l-3 7"></path>
+                </svg>
+                <span class="category-name">글램핑장</span>
+            </button>
+            <button class="category-button" aria-label="관광지" data-category="관광지">
+                <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 3h8l-8 18h8"></path>
+                </svg>
+                <span class="category-name">관광지</span>
+            </button>
+            <button class="category-button" aria-label="주유소" data-category="주유소">
+                <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 22h12"></path>
+                    <path d="M4 9h10"></path>
+                    <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"></path>
+                    <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"></path>
+                </svg>
+                <span class="category-name">주유소</span>
+            </button>
+            <button class="category-button" aria-label="약국" data-category="약국">
+                <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 21h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"></path>
+                    <path d="M12 7v10"></path>
+                    <path d="M7 12h10"></path>
+                </svg>
+                <span class="category-name">약국</span>
+            </button>
+            <button class="category-button" aria-label="편의점" data-category="편의점">
+                <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="category-name">편의점</span>
+            </button>
+            <button class="category-button" aria-label="마트" data-category="마트">
+                <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="category-name">마트</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="map">
+        <iframe id="mapIframe" src="https://map.kakao.com/?q=캠핑장" allowfullscreen></iframe>
+    </div>
+
+    <!-- 음악 추천 정보 표시 -->
+    <div class="music-container">
+        <h1 class="music-container-title">Music and Playlists</h1>
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% else %}
+            <div class="grid-container">
+                {% for item in combined_results %}
+                    <div class="grid-item">
+                        <a href="{{ item.url }}" target="_blank">
+                            <img src="{{ item.thumbnail }}" alt="{{ item.title }}">
+                            <div class="title">{{ item.title }}</div>
+                            <div class="type">
+                                {% if item.type == "music" %}
+                                    🎵 Music
+                                {% else %}
+                                    📂 Playlist
+                                {% endif %}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    
+    
+
+
+    <!--스크립트 부분-->
+    <!-- JavaScript로 새로고침 기능 구현 -->
+    <script>
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        // 슬라이드 관련 변수 초기화
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.java_slide');
+
+        // 슬라이드 전환 함수
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'next', 'previous');
+                
+                if (i === index) {
+                    slide.classList.add('active');
+                } else if (i === (index + 1) % slides.length) {
+                    slide.classList.add('next');
+                } else if (i === (index - 1 + slides.length) % slides.length) {
+                    slide.classList.add('previous');
+                }
+            });
+        }
+
+        // 다음 슬라이드로 이동
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // 이전 슬라이드로 이동
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // 페이지 로드 시 첫 번째 슬라이드 보여줌
+        showSlide(currentSlide);
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+
+    <script>
+        // 모든 버튼에 클릭 이벤트를 추가
+        document.querySelectorAll('.category-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // 버튼의 data-category 속성에서 카테고리 값을 가져오기
+                const category = this.getAttribute('data-category');
+                // iframe의 src 속성을 업데이트하여 검색 결과 표시
+                document.getElementById('mapIframe').src = `https://map.kakao.com/?q=${encodeURIComponent(category)}`;
+            });
+        });
+    </script>
+
+    <script src="https://veluga.app/js/vg-plugin.js?channelId=673bbac6d1f0e848acd8d13a"></script>
+</body>
+</html>
